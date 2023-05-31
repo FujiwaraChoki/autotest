@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+
+import UserContext from '../contexts/UserContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
     const [clear, setClear] = useState(false);
+
+    const { setUser } = useContext(UserContext);
 
     const router = useRouter();
 
@@ -14,6 +18,10 @@ const Login = () => {
             console.log('Login successful');
             setClear(true)
             setLoggedIn(true);
+            setUser({
+                email: 'email',
+                password: 'password'
+            })
 
             // Redirect to dashboard after 2 seconds
             setTimeout(() => {

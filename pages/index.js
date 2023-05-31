@@ -1,6 +1,7 @@
 import Hero from "../components/Hero";
 import LearnMore from "../components/LearnMore";
 import Statistics from "../components/Statistics";
+import Reviews from "../components/Reviews";
 
 const Home = () => {
   return (
@@ -8,8 +9,12 @@ const Home = () => {
       <div className="flex justify-center items-center">
         <Hero />
       </div>
-      <Statistics />
-      <LearnMore />
+      <div className="flex justify-center items-center">
+        <LearnMore />
+      </div>
+      <div className="flex justify-center items-center">
+        <Reviews />
+      </div>
     </>
   );
 };
