@@ -1,0 +1,2 @@
+import Linkfrom "next/link";
+
