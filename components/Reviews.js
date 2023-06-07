@@ -4,7 +4,7 @@ const Reviews = ({ }) => {
     return (
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
-                <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Unseren Bisherigen Erfolge ✨</h1>
+                <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Unsere Bisherigen Erfolge ✨</h1>
                 <div className="flex flex-wrap -m-4 px-20">
                     <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
                         <div className="h-full text-center">

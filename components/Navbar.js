@@ -17,10 +17,10 @@ const Navbar = () => {
                     <Link href="/" className="ml-3 text-xl">AutoTest</Link>
                 </div>
                 <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                    {user && <Link href="" className="mr-5 hover:text-blue hover:font-bold transition duration-200">Dashboard</Link>}
+                    {user && <Link href="" className="mr-5 hover:text-blue-500 transition ease-in duration-200">Dashboard</Link>}
 
                     <Link href="/about" className="mr-5 hover:text-blue-500 transition ease-in duration-200">About Us</Link>
-                    <Link href="/about" className="mr-5 hover:text-blue-500 transition ease-in duration-200">Reviews</Link>
+                    <Link href="/reviews" className="mr-5 hover:text-blue-500 transition ease-in duration-200">Reviews</Link>
                 </nav>
                 {
                     !user ? (

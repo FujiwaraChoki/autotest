@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 import UserContext from '../contexts/UserContext';
 
@@ -21,7 +22,7 @@ const Login = () => {
             setUser({
                 email: 'email',
                 password: 'password'
-            })
+            });
 
             // Redirect to dashboard after 2 seconds
             setTimeout(() => {
@@ -37,6 +38,33 @@ const Login = () => {
             }, 2000);
         }
     };
+
+    const login = useCallback(async () => {
+        try {
+            await signIn("credentials", {
+                email,
+                password,
+                callbackUrl: "/profiles",
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }, [email, password]);
+
+    const register = useCallback(async () => {
+        try {
+            await axios.post("/api/register", {
+                email,
+                name,
+                password,
+            });
+
+            login();
+
+        } catch (error) {
+            console.log(error);
+        }
+    }, [email, name, password, login ]);
 
     const Status = () => (
         <div className="text-center">
