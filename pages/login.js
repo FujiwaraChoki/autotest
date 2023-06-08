@@ -38,33 +38,33 @@ const Login = () => {
             }, 2000);
         }
     };
-
-    const login = useCallback(async () => {
-        try {
-            await signIn("credentials", {
-                email,
-                password,
-                callbackUrl: "/profiles",
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    }, [email, password]);
-
-    const register = useCallback(async () => {
-        try {
-            await axios.post("/api/register", {
-                email,
-                name,
-                password,
-            });
-
-            login();
-
-        } catch (error) {
-            console.log(error);
-        }
-    }, [email, name, password, login ]);
+    /**
+        const login = useCallback(async () => {
+            try {
+                await signIn("credentials", {
+                    email,
+                    password,
+                    callbackUrl: "/profiles",
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        }, [email, password]);
+    
+        const register = useCallback(async () => {
+            try {
+                await axios.post("/api/register", {
+                    email,
+                    name,
+                    password,
+                });
+    
+                login();
+    
+            } catch (error) {
+                console.log(error);
+            }
+        }, [email, name, password, login]); */
 
     const Status = () => (
         <div className="text-center">
