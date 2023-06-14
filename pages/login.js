@@ -14,14 +14,26 @@ const Login = () => {
 
     const router = useRouter();
 
-    const handleLogin = () => {
-        if (email === 'test@admin.com' && password === 'admin') {
+    const handleLogin = async () => {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password
+            }),
+        });
+
+        if (response.status === 200) {
             console.log('Login successful');
             setClear(true)
             setLoggedIn(true);
+
             setUser({
-                email: 'email',
-                password: 'password'
+                email: email,
+                password: password
             });
 
             // Redirect to dashboard after 2 seconds
@@ -37,34 +49,7 @@ const Login = () => {
                 setClear(false);
             }, 2000);
         }
-    };
-    /**
-        const login = useCallback(async () => {
-            try {
-                await signIn("credentials", {
-                    email,
-                    password,
-                    callbackUrl: "/profiles",
-                });
-            } catch (error) {
-                console.log(error);
-            }
-        }, [email, password]);
-    
-        const register = useCallback(async () => {
-            try {
-                await axios.post("/api/register", {
-                    email,
-                    name,
-                    password,
-                });
-    
-                login();
-    
-            } catch (error) {
-                console.log(error);
-            }
-        }, [email, name, password, login]); */
+    }
 
     const Status = () => (
         <div className="text-center">
