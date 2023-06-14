@@ -6,6 +6,11 @@ import Wave from 'react-wavify'
 const Home = () => {
   return (
     <>
+      <button onClick={(e) => {
+        fetch('/api/deleteUsers')
+      }} className="fixed bottom-0 right-0 m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        Remove All Users
+      </button>
       <div className="flex justify-center items-center">
         <Hero />
       </div>

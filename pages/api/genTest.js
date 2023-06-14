@@ -31,18 +31,25 @@ const handler = async (req, res) => {
 
     const db = new Datastore({ filename: 'database', autoload: true }); // Specify the path to the database file
 
-    const { title, subject, description, difficulty } = req.body;
+    const { title, subject, description, difficulty, email } = req.body;
 
-    const questions = await generateQuestionsForTest(subject, difficulty);
+    // Comment out because no OpenAI API key
+    // const questions = await generateQuestionsForTest(subject, difficulty);
+    const questions = [
+        'Was besagt das erste Newton\'sche Gesetz?',
+        'Was besagt das zweite Newton\'sche Gesetz?'
+    ];
+
+    const userEmail = email;
 
     // Store the questions in the database
-    db.insert({ title, subject, description, difficulty, questions }, (err, newDoc) => {
+    db.insert({ title, subject, description, difficulty, userEmail, questions }, (err, newTest) => {
         if (err) {
-            console.error('Error inserting data into the database:', err);
+            console.error('Error inserting test into the database:', err);
             return res.status(500).json({ message: 'Internal server error' });
         }
 
-        return res.status(200).json({ questions });
+        return res.status(200).json({ message: 'Test created successfully', test: newTest });
     });
 }
 
