@@ -34,7 +34,8 @@ const App = ({ Component, pageProps }) => {
         }}
         style={{
           bottom: 0,
-          position: 'fixed'
+          position: 'sticky',
+          marginBottom: -10
         }}
       />
     </>
