@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import UserContext from "../contexts/UserContext";
 import Notification from "../components/Notification";
 
@@ -15,17 +13,19 @@ const Dashboard = () => {
 
     const CreateTestModal = () => {
         const [title, setTitle] = useState('');
+        const [subject, setSubject] = useState('');
         const [description, setDescription] = useState('');
+        const [difficultyLevel, setDifficultyLevel] = useState('Einfach');
+        const [showDiff, setShowDiff] = useState(false);
 
         return (
-            <div div
-                id="authentication-modal"
+            <div
                 tabIndex={- 1}
                 aria-hidden="true"
                 className="fixed top-0 bottom-0 left-0 right-0 z-50 flex items-center justify-center w-full h-full p-4 overflow-x-hidden overflow-y-auto md:inset-0"
             >
                 <div className="relative w-full max-w-md max-h-full">
-                    <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div className="relative bg-white border-7 rounded-lg shadow dark:bg-gray-700">
                         <button
                             type="button"
                             className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
@@ -81,8 +81,95 @@ const Dashboard = () => {
                                         type="text"
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                         required=""
-                                        value={description}
+                                        value={subject}
+                                        onChange={(e) => setSubject(e.target.value)}
                                     />
+                                </div>
+                                <div>
+                                    <label
+                                        htmlFor="thema"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Thema
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                        required=""
+                                        id="thema"
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)}
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        htmlFor="dropdownDefaultButton"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Schwierigkeit
+                                    </label>
+                                    <button
+                                        id="dropdownDefaultButton"
+                                        data-dropdown-toggle="dropdown"
+                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        type="button"
+                                        onClick={(e) => setShowDiff(!showDiff)}
+                                    >
+                                        {difficultyLevel}
+                                        <svg
+                                            className="w-4 h-4 ml-2"
+                                            aria-hidden="true"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M19 9l-7 7-7-7"
+                                            />
+                                        </svg>
+                                    </button>
+                                    {
+                                        showDiff && (
+                                            <div
+                                                id="dropdown"
+                                                className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                                            >
+                                                <ul
+                                                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                                    aria-labelledby="dropdownDefaultButton"
+                                                >
+                                                    <li>
+                                                        <button
+                                                            onClick={(e) => setDifficultyLevel('Einfach')}
+                                                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        >
+                                                            Einfach
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button
+                                                            onClick={(e) => setDifficultyLevel('Mittel')}
+                                                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        >
+                                                            Mittel
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button
+                                                            onClick={(e) => setDifficultyLevel('Schwierig')}
+                                                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        >
+                                                            Schwierig
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        )
+                                    }
                                 </div>
                                 <button
                                     type="submit"
