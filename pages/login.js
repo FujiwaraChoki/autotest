@@ -71,9 +71,9 @@ const Login = () => {
             {
                 clear && (
                     loggedIn ? (
-                        <h1 className="text-2xl text-green-500" > Sie werden bald weitergeleitet.</h1>
+                        <h1 className="text-2xl text-green-500" >Erfolgreich angemeldet! ✅</h1>
                     ) : (
-                        <h1 className="text-2xl text-red-500">Falsche Anmeldeinformationen.</h1>
+                        <h1 className="text-2xl text-red-500">Falsche Anmeldeinformationen! ❎</h1>
                     )
                 )
             }
