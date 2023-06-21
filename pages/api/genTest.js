@@ -42,14 +42,14 @@ const handler = async (req, res) => {
 
     const userEmail = email;
 
-    // Store the questions in the database
-    db.insert({ title, subject, description, difficulty, userEmail, questions }, (err, newTest) => {
+    // Update user in database
+    db.update({ email: userEmail }, { $push: { tests: { title, subject, description, difficulty, questions } } }, {}, (err, numReplaced) => {
         if (err) {
-            console.error('Error inserting test into the database:', err);
+            console.error('Error updating user in the database:', err);
             return res.status(500).json({ message: 'Internal server error' });
         }
 
-        return res.status(200).json({ message: 'Test created successfully', test: newTest });
+        return res.status(200).json({ message: 'Test creation successful' });
     });
 }
 
