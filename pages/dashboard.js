@@ -31,7 +31,7 @@ const Dashboard = () => {
         setTests([...tests, {
             id: tests.length + 1,
             title: title,
-            description: description,
+            description: objectives,
             questions: questions
         }]);
     }
