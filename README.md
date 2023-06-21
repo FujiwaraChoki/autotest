@@ -16,8 +16,8 @@ autoTests.ai ist ein KI-gesteuertes System, das Lernziele entgegennimmt und auto
 
 Um autoTests.ai auf Ihrem System zu installieren, folgen Sie den unten stehenden Schritten:
 
-1. Klonen Sie das Repository in Ihr lokales System: `git clone https://github.com/nxtdxve/autoTests.ai.git`
-2. Wechseln Sie in das Verzeichnis: `cd autoTests.ai`
+1. Klonen Sie das Repository in Ihr lokales System: `git clone https://github.com/FujiwaraChoki/autotest.git`
+2. Wechseln Sie in das Verzeichnis: `cd autotest`
 3. Installieren Sie die erforderlichen Abhängigkeiten: `npm install`
 4. Führen Sie die Anwendung aus: `npm run dev`
 
