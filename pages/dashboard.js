@@ -13,7 +13,7 @@ const Dashboard = () => {
     const [open, setOpen] = useState(false);
     const router = useRouter();
 
-    const addTest = async (title, subject, description, difficultyLevel) => {
+    const addTest = async (title, subject, objectives, difficultyLevel) => {
         const questions = fetch('/api/genTest', {
             method: 'POST',
             headers: {
@@ -22,7 +22,7 @@ const Dashboard = () => {
             body: JSON.stringify({
                 title,
                 subject,
-                description,
+                objectives,
                 difficultyLevel,
                 email: user.email
             })

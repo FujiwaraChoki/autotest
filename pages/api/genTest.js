@@ -3,14 +3,14 @@ import Datastore from 'nedb';
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-const generateQuestionsForTest = async (subject, difficulty) => {
+const generateQuestionsForTest = async (subject, objectives, difficulty) => {
     const configuration = new Configuration({
         apiKey: process.env.OPENAI_API_KEY,
     });
 
     const openai = new OpenAIApi(configuration);
 
-    const prompt = `Generate questions for ${subject} on ${difficulty} level. Use --- to separate questions.`;
+    const prompt = `Generate questions for ${subject} on ${difficulty} level. Use --- to separate questions. I have to fulfill these learning objectives: ${objectives}}`;
 
     const completion = await openai.createCompletion(
         {
@@ -31,19 +31,15 @@ const handler = async (req, res) => {
 
     const db = new Datastore({ filename: 'database', autoload: true }); // Specify the path to the database file
 
-    const { title, subject, description, difficulty, email } = req.body;
+    const { title, subject, objectives, difficulty, email } = req.body;
 
     // Comment out because no OpenAI API key
-    // const questions = await generateQuestionsForTest(subject, difficulty);
-    const questions = [
-        'Was besagt das erste Newton\'sche Gesetz?',
-        'Was besagt das zweite Newton\'sche Gesetz?'
-    ];
+    const questions = await generateQuestionsForTest(subject, objectives, difficulty);
 
     const userEmail = email;
 
     // Update user in database
-    db.update({ email: userEmail }, { $push: { tests: { title, subject, description, difficulty, questions } } }, {}, (err, numReplaced) => {
+    db.update({ email: userEmail }, { $push: { tests: { title, subject, objectives, difficulty, questions } } }, {}, (err, numReplaced) => {
         if (err) {
             console.error('Error updating user in the database:', err);
             return res.status(500).json({ message: 'Internal server error' });
