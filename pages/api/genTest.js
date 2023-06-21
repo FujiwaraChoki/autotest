@@ -5,21 +5,25 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const generateQuestionsForTest = async (subject, objectives, difficulty) => {
     const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: OPENAI_API_KEY,
     });
 
     const openai = new OpenAIApi(configuration);
 
-    const prompt = `Generate questions for ${subject} on ${difficulty} level. Use --- to separate questions. I have to fulfill these learning objectives: ${objectives}}`;
+    const prompt = `Generate questions for ${subject} on ${difficulty} level. Use --- to separate questions. I have to fulfill these learning objectives: ${objectives}`;
 
-    const completion = await openai.createCompletion(
+    const completion = openai.createCompletion(
         {
-            model: "text-davinci-003",
+            model: "gpt-3.5",
             prompt: prompt,
         },
     );
 
+    console.log(completion)
+
     const questions = completion.data.choices[0].text.split("---");
+
+    console.log(completion.data.choices[0].text);
 
     return questions;
 };

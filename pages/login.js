@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import Link from 'next/link';
 
 import UserContext from '../contexts/UserContext';
 
@@ -84,7 +84,7 @@ const Login = () => {
                         <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                     </div>
                     <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={handleLogin}>Anmelden</button>
-                    <p className="text-xs text-gray-500 mt-3">Ihre Daten sind mit uns sicher.</p>
+                    <p className="text-xs text-gray-500 mt-3">Ihre Daten sind mit uns sicher. <Link href="/register" className="underline text-blue-500">Registrieren Sie sich hier.</Link></p>
                 </div>
             </div>
         </section>
