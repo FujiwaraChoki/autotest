@@ -3,10 +3,6 @@ import Datastore from 'nedb';
 const db = new Datastore({ filename: 'database', autoload: true });
 
 const handler = async (req, res) => {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method not allowed' });
-    }
-
     const { email, password } = req.body;
 
     // Register

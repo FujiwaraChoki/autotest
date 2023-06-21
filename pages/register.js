@@ -8,7 +8,6 @@ const register = () => {
 
     const register = async () => {
         const response = await fetch("/api/register", {
-            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
