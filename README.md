@@ -1,7 +1,4 @@
 # autoTests.ai
-
-![alt text](https://images-ext-2.discordapp.net/external/xBfkCFE1B1dVfFDSo8l340qTzyME_tECM1ycHhf5cs4/https/assets.fkcri.me/uploads/3b6e4bed-28bd-4687-b722-d33ef36fc16c.jpg?width=654&height=675)
-
 ## Übersicht
 
 autoTests.ai ist ein KI-gesteuertes System, das Lernziele entgegennimmt und automatisch Tests erstellt, die ausgefüllt und anschließend korrigiert werden können. Dieses Projekt zielt darauf ab, das Lernen und Lehren effizienter und effektiver zu gestalten, indem es den Prozess der Erstellung und Korrektur von Tests automatisiert.
