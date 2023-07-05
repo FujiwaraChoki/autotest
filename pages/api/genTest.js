@@ -1,25 +1,24 @@
-import { OpenAIApi, Configuration } from 'openai';
 import Datastore from 'nedb';
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-
 const generateQuestionsForTest = async (subject, objectives, difficulty) => {
-    const configuration = new Configuration({
-        apiKey: OPENAI_API_KEY,
-    });
-
-    const openai = new OpenAIApi(configuration);
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
     const prompt = `Generate questions for ${subject} on ${difficulty} level. Use --- to separate questions. I have to fulfill these learning objectives: ${objectives}`;
 
-    const completion = openai.createCompletion(
-        {
-            model: "gpt-3.5",
-            prompt: prompt,
-        },
-    );
+    const body = {
+        prompt,
+    }
 
-    console.log(completion)
+    const response = await fetch('https://api.pawan.krd/v1/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + OPENAI_API_KEY,
+        },
+        body: JSON.stringify(body),
+    }).then((response) => response.json());
+
+    const completion = await response;
 
     const questions = completion.data.choices[0].text.split("---");
 
@@ -33,7 +32,7 @@ const handler = async (req, res) => {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
-    const db = new Datastore({ filename: 'database', autoload: true }); // Specify the path to the database file
+    const db = new Datastore({ filename: '../../public/database', autoload: true }); // Specify the path to the database file
 
     const { title, subject, objectives, difficulty, email } = req.body;
 

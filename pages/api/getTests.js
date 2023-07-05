@@ -5,7 +5,7 @@ const handler = async (req, res) => {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
-    const db = new Datastore({ filename: 'database', autoload: true });
+    const db = new Datastore({ filename: '../../public/database', autoload: true });
 
     const { email } = req.body;
 

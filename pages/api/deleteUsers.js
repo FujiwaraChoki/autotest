@@ -1,6 +1,6 @@
 import Datastore from 'nedb';
 
-const db = new Datastore({ filename: 'database', autoload: true });
+const db = new Datastore({ filename: '../../public/database', autoload: true });
 
 const handler = async (req, res) => {
     // Delete all users
