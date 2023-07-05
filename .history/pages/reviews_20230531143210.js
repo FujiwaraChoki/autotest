@@ -1,6 +1,0 @@
-const ReviewsPage = () => {
-    return (
-
-    )
-}
-
