@@ -25,6 +25,10 @@ Um autoTests.ai auf Ihrem System zu installieren, folgen Sie den unten stehenden
 
 Geben Sie Ihre Lernziele ein und lassen Sie autoTests.ai einen Test für Sie generieren. Sobald Sie den Test abgeschlossen haben, wird autoTests.ai diesen korrigieren und Ihnen ein Feedback geben.
 
+## Programmierer
+
+Diese Webseite wurde hauptsächlich von Sami Hindi erstellt (FujiwaraChoki).
+
 ## Technologie
 
 - **Framework**: Next.js
