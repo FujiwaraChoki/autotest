@@ -1,6 +1,7 @@
 # autoTests.ai
 
-![PETA](https://play-lh.googleusercontent.com/aTTVA77bs4tVS1UvnsmD_T0w-rdZef7UmjpIsg-8RVDOVl_EVEHjmkn6qN7C0teRS3o)
+![Contributions]([https://play-lh.googleusercontent.com/aTTVA77bs4tVS1UvnsmD_T0w-rdZef7UmjpIsg-8RVDOVl_EVEHjmkn6qN7C0teRS3o](https://i.imgur.com/KbDWAq0.png))
+
 ## Übersicht
 
 autoTests.ai ist ein KI-gesteuertes System, das Lernziele entgegennimmt und automatisch Tests erstellt, die ausgefüllt und anschließend korrigiert werden können. Dieses Projekt zielt darauf ab, das Lernen und Lehren effizienter und effektiver zu gestalten, indem es den Prozess der Erstellung und Korrektur von Tests automatisiert.
