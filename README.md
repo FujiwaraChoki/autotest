@@ -1,6 +1,6 @@
 # autoTests.ai
 
-![Contributions]([https://play-lh.googleusercontent.com/aTTVA77bs4tVS1UvnsmD_T0w-rdZef7UmjpIsg-8RVDOVl_EVEHjmkn6qN7C0teRS3o](https://i.imgur.com/KbDWAq0.png))
+![Contributions]([https://play-lh.googleusercontent.com/aTTVA77bs4tVS1UvnsmD_T0w-rdZef7UmjpIsg-8RVDOVl_EVEHjmkn6qN7C0teRS3o](https://i.imgur.com/KbDWAq0.png]))
 
 ## Übersicht
 
